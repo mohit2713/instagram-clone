@@ -1,0 +1,8 @@
+.post__img {
+   width: 100%;
+  object-fit: ntain; 
+}
+
+.post__text{
+    font-weight: normal;
+}

@@ -1,34 +1,25 @@
 import React from "react";
-import img from "./images/testimg.webp";
+// import img from "./images/testimg.webp";
 import "./post.css";
-// import Avatar from "@material-ui/core/Avatar";
-// import Button from "@material-ui/core/Button";
+import Avatar from "@mui/material/Avatar";
 
-function Post() {
+function Post({ username, caption, imageUrl }) {
   return (
     <div className="post">
-      {/* <div>
+      <div className="post__header">
         <Avatar
-          alt="RemySharp"
-          src="/static/images/avatar/1.jpg"
           classNam="post__avatar"
+          alt={username}
+          src="/static/images/avatar/1.jpg"
         />
-      </div> */}
-
-      {/* <div className="App">
-        <br />
-        <Button variant="contained" color="primary" size="large">
-          GeeksforGeeks
-        </Button>
-      </div> */}
-
-      <h1>hello user</h1>
-      {/* header -> avtar +username */}
-      <img src={img} alt="img" className="post__img" />
+        <h3 className="postheader__text">{username}</h3>
+      </div>
+      <img className="post__img" src={imageUrl} alt="img" />
       {/* image */}
       <h1 className="post__text">
-        {" "}
-        <strong>Ben Tenyson </strong>How to Stay in the Moment: Take a Picture
+        {/* {" "} */}
+        <strong>{username} </strong>
+        {caption}
       </h1>
       {/* username + caption */}
     </div>

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import logo from "./images/iglogo.jpg";
+import notlogin from "./images/not_login.png";
+
 import Post from "./post";
 import { db, auth } from "./firebase";
 import Modal from "@mui/material/Modal";
@@ -8,6 +10,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import ImageUpload from "./ImageUpload";
+// import InstagramEmbed from "react-instagram-embed";
 
 function App() {
   // const handleOpen = () => setOpen(true);
@@ -168,7 +171,7 @@ function App() {
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <Button style={{ color: "black" }} type="submit" onClick={signIn}>
+              <Button   variant="outlined" type="submit" onClick={signIn}>
                 sign In
               </Button>
             </Box>
@@ -180,7 +183,7 @@ function App() {
         <img className="app__headerImage" src={logo} alt="Instagram-logo" />
         {user ? (
           <Button
-            style={{ color: "black" }}
+            variant="outlined"
             type="submit"
             onClick={() => auth.signOut()}
           >
@@ -189,7 +192,7 @@ function App() {
         ) : (
           <div>
             <Button
-              style={{ color: "black" }}
+              // variant="outlined"
               type="submit"
               disableElevation
               onClick={() => setOpenSignIn(true)}
@@ -197,7 +200,7 @@ function App() {
               sign In
             </Button>
             <Button
-              style={{ color: "black" }}
+              // variant="outlined"
               type="submit"
               disableElevation
               onClick={() => setOpen(true)}
@@ -213,6 +216,7 @@ function App() {
           <Post
             key={id}
             postID={id}
+            user={user}
             username={posts.username}
             caption={posts.caption}
             imageUrl={posts.imageUrl}
@@ -220,10 +224,27 @@ function App() {
         ))}
       </div>
 
+      {/* <InstagramEmbed
+        url="https://instagr.am/p/Zw9o4/"
+        clientAccessToken="123|456"
+        maxWidth={320}
+        hideCaption={false}
+        containerTagName="div"
+        protocol=""
+        injectScript
+        onLoading={() => {}}
+        onSuccess={() => {}}
+        onAfterRender={() => {}}
+        onFailure={() => {}}
+      /> */}
+
       {user?.displayName ? (
         <ImageUpload username={user.displayName} />
       ) : (
-        <h3>Sorry you need to login to upload</h3>
+        <div className="not_login">
+          <h3 className="not_login_text">Sorry you need to login to upload</h3>
+          <img src={notlogin} alt="not_login_img" className="not_login_img" />
+        </div>
       )}
     </div>
   );

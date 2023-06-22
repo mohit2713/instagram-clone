@@ -3,11 +3,13 @@
   max-width: 500px;
   border: 1px solid lightgray;
   margin-bottom: 45px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .post__img {
   width: 100%;
-  object-fit:contain;
+  object-fit: contain;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
 }
@@ -29,4 +31,31 @@
 
 .postheader__text {
   margin-left: 8px;
+}
+
+.post__commentBox {
+  display: flex;
+  margin-right: 10px;
+}
+
+.post__comments{
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.post__input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-top: 1px solid lightgray;
+}
+.post__input:hover {
+  border: 1px solid #1670be;
+  outline-offset: 0px;
+  outline: none;
+}
+
+.post__button {
+  flex: 0;
+  border: none;
+
 }

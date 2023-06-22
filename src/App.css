@@ -6,6 +6,9 @@
   background-color: #fafafa;
 }
 .app__header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   object-fit: contain;
   height: 10vh;
   background-color: white;
@@ -24,4 +27,20 @@
 
 .app__posts {
   padding: 15px;
+}
+
+.not_login {
+  display: flex;
+  justify-content: center;
+}
+.not_login_img {
+  width: 20vh;
+}
+.not_login_text {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: auto;
+  margin-top: auto;
+  padding: 2px;
+  
 }
